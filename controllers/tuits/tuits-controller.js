@@ -5,11 +5,13 @@ const createTuit = async (req, res) => {
   newTuit.likes = 0;
   newTuit.liked = false;
   const insertedTuit = await tuitsDao.createTuit(newTuit);
+  console.log(insertedTuit)
   res.json(insertedTuit);
 }
 
 const findTuits = async (req, res) =>{
     const tuits = await tuitsDao.findTuits()
+    console.log(tuits)
    res.json(tuits);
 }
 const updateTuit = async (req, res) => {
@@ -23,6 +25,7 @@ const updateTuit = async (req, res) => {
 const deleteTuit = async (req, res) => {
   const tuitdIdToDelete = req.params.tid;
   const status = await tuitsDao.deleteTuit(tuitdIdToDelete);
+   console.log(status)
   res.json(status);
 }
 
